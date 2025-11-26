@@ -20,10 +20,10 @@ class Product
 
     public:
         Product(int id, float price, std::string name, ProductTypEnum type); 
-        int getId() const;
-        float getPrice() const;
-        std::string getName() const;
-        ProductTypEnum getType() const;
+        int getId();
+        float getPrice();
+        std::string getName();
+        ProductTypEnum getType();
 
 
 };

@@ -1,6 +1,6 @@
 PROG = main.exe 
-SRC = main.cpp products.cpp
-CFLAGS = -g -std=c++17
+SRC = main.cpp products.cpp baskets.cpp
+CFLAGS = -Wall -g -std=c++17
 LIBS = 
 CC=g++
 

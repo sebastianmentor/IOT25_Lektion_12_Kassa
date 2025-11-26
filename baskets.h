@@ -8,8 +8,8 @@
 
 typedef struct 
 {
-    const int amount;
-    const Product &product;
+    int amount;
+    Product &product;
 } ItemPurchase;
 
 class Baskets

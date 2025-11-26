@@ -3,16 +3,71 @@
 #include <string>
 #include <sstream>
 #include "products.h"
+#include "baskets.h"
 
-void newCustomer(const std::vector<Product> &products){
+void newCustomer(std::vector<Product> &products){
+    Baskets basket;
+    std::string userInput;
+    std::cout << "Enter PAY to pay\n";
     while (true)
     {
-        /* code */
+        std::cout << "<product id> <amount>\n";
+        std::getline(std::cin, userInput);
+
+        if (userInput == "PAY"){
+            break;
+        }
+
+        std::stringstream ss(userInput);
+
+        std::string ord;
+
+        std::vector<std::string> resultat;
+    
+        while (ss >> ord) 
+        {   // Splittar på whitespace
+            resultat.push_back(ord);
+        }
+    
+        if (resultat.size() != 2)
+        {
+            std::cout << "Invalid input! Inkorrect amount of arguments!\n";
+            continue;
+        }
+
+        int product_id = stoi(resultat[0]);
+
+        Product *productToAdd = NULL;
+
+        for (auto &product:products)
+        {
+            if (product.getId()==product_id)
+            {  
+                productToAdd = &product;
+                break;
+            }
+        }
+
+        if (!productToAdd==NULL)
+        {
+            int amount = stoi(resultat[1]);
+            ItemPurchase new_item = {amount, *productToAdd};
+            basket.addItem(new_item);
+            basket.printBasket();
+            continue;
+        }
+        else
+        {
+            std::cout << "Product not found with product id " << product_id << std::endl;
+        }
+
+
+
     }
     
 }
 
-void runProgram(const std::vector<Product> &products){
+void runProgram(std::vector<Product> &products){
     std::string choice;
     while (true)
     {
