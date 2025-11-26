@@ -4,6 +4,14 @@
 #include <sstream>
 #include "products.h"
 
+void newCustomer(const std::vector<Product> &products){
+    while (true)
+    {
+        /* code */
+    }
+    
+}
+
 void runProgram(const std::vector<Product> &products){
     std::string choice;
     while (true)
@@ -13,7 +21,7 @@ void runProgram(const std::vector<Product> &products){
 
         if (choice == "1")
         {
-
+            newCustomer(products);
         }
         else if (choice == "2")
         {
